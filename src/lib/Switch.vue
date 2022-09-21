@@ -44,7 +44,7 @@ export default {
     // &:focus {
     //   outline: none;
     // }
-    background: gray;
+    background: #bfbfbf;
     border-radius: calc($h / 2);
     position: relative;
     span {
@@ -55,16 +55,28 @@ export default {
       width: $h2;
       border-radius: calc($h2 / 2);
       background: white;
-      transition: left 300ms;
+      transition: all 300ms;
     }
     &:hover {
       cursor: pointer;
     }
     &.checked {
-      background: blue;
+      background: #1890ff;
     }
     &.checked > span {
       left: calc(100% - #{$h2} - 2px);
+    }
+    // 激活时有个小的拉伸
+    &:active{
+      > span {
+        width: $h2 + 4px;
+      }
+    }
+    &.checked:active{
+      > span {
+        width: $h2 + 4px; 
+        margin-left: -4px;
+      }
     }
   }
 </style>
