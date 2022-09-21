@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="{checked: checked}" @click="toggleSwitch">
+    <button :class="{checked: value}" @click="toggleSwitch">
       <span></span>
     </button>
   </div>
@@ -10,14 +10,23 @@ import { Ref, ref } from 'vue';
 
 export default {
   name: 'Switch',
-  setup(props: any, context: { commit: (arg0: string, arg1: Ref<boolean>) => void; }) {
-    const checked = ref(false)
-    const toggleSwitch = () => {
-      checked.value = !checked.value
+  props: {
+    // 组件的真实数据
+    value: {
+      type: Boolean,
+      default() {
+        return false
+      }
     }
-    // context.commit('update:value', checked)
+  },
+  setup(props: any, context: { emit: (arg0: string, arg1: any) => void; }) {
+    const toggleSwitch = () => {
+      //使用prop时不能修改它，只能取反，抛给父级去修改对应值
+      let checked = props.value
+      //组件内触发切换操作后，通知外部 
+      context.emit('input', !checked)
+    }
     return {
-      checked,
       toggleSwitch,
     }
   }
@@ -30,9 +39,9 @@ export default {
     height: $h;
     width: calc($h * 2);
     border: none;
-    &:focus {
-      outline: none;
-    }
+    // &:focus {
+    //   outline: none;
+    // }
     background: gray;
     border-radius: calc($h / 2);
     position: relative;
