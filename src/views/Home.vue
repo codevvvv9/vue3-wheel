@@ -4,8 +4,8 @@
     <h1>vue3 UI框架</h1>
     <h2>一个厉害的UI框架</h2>
     <p class="action">
-      <a href="">Github</a>
-      <a href="">开始</a>
+      <a href="https://github.com/codevvvv9/vue3-wheel">Github</a>
+      <router-link to="/doc">开始</router-link>
     </p>
   </div>
 </template>
