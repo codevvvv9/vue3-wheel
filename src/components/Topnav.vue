@@ -5,7 +5,13 @@
         <use xlink:href="#icon-cebianlanzhankai"></use>
       </svg>
     </div>
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <router-link to="/">
+        <svg class="icon logo" aria-hidden="true">
+          <use xlink:href="#icon-icon-"></use>
+        </svg>
+      </router-link>
+    </div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
@@ -17,15 +23,23 @@
   background: pink;
   display: flex;
   padding: 16px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10;
   .asideFoldButton {
     cursor: pointer;
     margin-right: 10px;
+    display: none;
   }
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    svg.logo {
+      width: 2em;
+      height: 2em;
+    }
   }
 
   > .menu {
@@ -38,6 +52,9 @@
     }
   }
   @media (max-width: 500px) {
+    .asideFoldButton {
+      display: block;
+    }
     > .menu {
       display: none;
     }
@@ -62,7 +79,7 @@ export default {
         menuVisible.value = !menuVisible.value
       }
     }
-
+    
     return { toggleMenuVisible }
   }
 }
