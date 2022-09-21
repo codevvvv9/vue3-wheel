@@ -1,5 +1,6 @@
 <template>
-  <Switch :value="checked" @input="handleInput"></Switch>
+  <!-- vue3的v-model相当于value的props和原来的@input事件的集成的语法糖，直接一个新指令完成-->
+  <Switch v-model:value="checked"></Switch>
 </template>
 
 <script lang="ts">

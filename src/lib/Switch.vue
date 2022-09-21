@@ -24,7 +24,9 @@ export default {
       //使用prop时不能修改它，只能取反，抛给父级去修改对应值
       let checked = props.value
       //组件内触发切换操作后，通知外部 
-      context.emit('input', !checked)
+      // context.emit('input', !checked)
+      // vue3的v-model 规定emit的时间名字必须是update:propsName
+      context.emit('update:value', !checked)
     }
     return {
       toggleSwitch,
