@@ -1,7 +1,7 @@
 import Doc from './views/Doc.vue'
 import Home from './views/Home.vue'
-import Button from './components/Button.vue'
-import Switch from './components/SwitchDemo.vue'
+import ButtonDemo from './components/ButtonDemo.vue'
+import SwitchDemo from './components/SwitchDemo.vue'
 import Dialog from './components/Dialog.vue'
 import Tabs from './components/Tabs.vue'
 import DocDefault from './components/DocDefault.vue'
@@ -25,11 +25,11 @@ const router = createRouter({
         },
         {
           path: 'switch',
-          component: Switch,
+          component: SwitchDemo,
         },
         {
           path: 'button',
-          component: Button,
+          component: ButtonDemo,
         },
         {
           path: 'dialog',
