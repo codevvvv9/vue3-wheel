@@ -1,12 +1,11 @@
 <template>
   <div>
-    <button :class="{checked: value}" @click="toggleSwitch">
+    <button class="gulu-switch" :class="{'gulu-checked': value}" @click="toggleSwitch">
       <span></span>
     </button>
   </div>
 </template>
 <script lang="ts">
-import { Ref, ref } from 'vue';
 
 export default {
   name: 'Switch',
@@ -34,10 +33,10 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   $h: 22px;
   $h2: $h - 4px;
-  button {
+  .gulu-switch {
     height: $h;
     width: calc($h * 2);
     border: none;
@@ -60,10 +59,10 @@ export default {
     &:hover {
       cursor: pointer;
     }
-    &.checked {
+    &.gulu-checked {
       background: #1890ff;
     }
-    &.checked > span {
+    &.gulu-checked > span {
       left: calc(100% - #{$h2} - 2px);
     }
     // 激活时有个小的拉伸
@@ -72,7 +71,7 @@ export default {
         width: $h2 + 4px;
       }
     }
-    &.checked:active{
+    &.gulu-checked:active{
       > span {
         width: $h2 + 4px; 
         margin-left: -4px;
