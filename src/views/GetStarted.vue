@@ -1,5 +1,5 @@
 <template>
-  <article class="markdown-body">
+  <!-- <article class="markdown-body">
     <h1>
       开始使用
     </h1>
@@ -26,5 +26,17 @@
       </code>
     </pre>
 
+  </article> -->
+  <article class="markdown-body">
   </article>
 </template>
+<script lang="ts">
+import md from '../markdown/get-started.md';
+export default {
+  data() {
+    return {
+      md
+    }
+  }
+}
+ </script>
