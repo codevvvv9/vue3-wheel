@@ -1,5 +1,8 @@
 import Doc from './views/Doc.vue'
 import Home from './views/Home.vue'
+import Intro from './views/Intro.vue'
+import GetStarted from './views/GetStarted.vue'
+import Install from './views/Install.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import SwitchDemo from './components/SwitchDemo.vue'
 import Dialog from './components/Dialog.vue'
@@ -38,6 +41,18 @@ const router = createRouter({
         {
           path: 'tabs',
           component: Tabs,
+        },
+        {
+          path: 'intro',
+          component: Intro,
+        },
+        {
+          path: 'install',
+          component: Install,
+        },
+        {
+          path: 'get-started',
+          component: GetStarted,
         },
       ]
     }

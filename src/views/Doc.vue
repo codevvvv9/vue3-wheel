@@ -3,6 +3,18 @@
     <Topnav class="nav" :toggleVisible="true"></Topnav>
     <div class="content">
       <aside v-if="menuVisible">
+        <h2>文档</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/intro">介绍</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/install">安装</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/get-started">开始使用</router-link>
+          </li>
+        </ol>
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -59,7 +71,7 @@ export default {
       flex-shrink: 0;
       background: lightblue;
       width: 150px;
-      padding: 16px;
+      padding: 16px 0px;
       position: fixed;
       top: 0;
       left: 0;
@@ -67,11 +79,20 @@ export default {
       padding-top: 70px;
       >h2 {
         margin-bottom: 4px;
+        padding: 0 16px;
       }
     
       >ol {
         >li {
-          padding: 4px 0;
+          > a {
+            display: block;
+            width: 100%;
+            padding: 4px 16px;
+            text-decoration: none;
+          }
+          .router-link-active.router-link-exact-active {
+            background: white;
+          }
         }
       }
     }
