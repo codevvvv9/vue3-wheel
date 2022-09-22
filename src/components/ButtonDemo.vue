@@ -1,8 +1,58 @@
 <template>
-  <w-button>你好</w-button>
-  <w-button theme="button">你好</w-button>
-  <w-button theme="link">你好</w-button>
-  <w-button theme="text">你好</w-button>
+  <div>Button组件示例</div>
+  <h1>示例1： theme属性</h1>
+  <br>
+  <div>
+    <w-button>你好</w-button>
+    <w-button theme="button">你好按钮</w-button>
+    <w-button theme="link">你好链接🔗</w-button>
+    <w-button theme="text">你好文字</w-button>
+  </div>
+  <br>
+  <h1>示例2： size属性</h1>
+  <br>
+  <div>
+    <w-button size="small">小小小</w-button>
+    <w-button>普普通</w-button>
+    <w-button size="big">大大大</w-button>
+  </div>
+  <div>
+    <w-button size="small" theme="link">小小小</w-button>
+    <w-button theme="link">普普通</w-button>
+    <w-button size="big" theme="link">大大大</w-button>
+  </div>
+  <div>
+    <w-button size="small" theme="text">小小小</w-button>
+    <w-button theme="text">普普通</w-button>
+    <w-button size="big" theme="text">大大大</w-button>
+  </div>
+  <br>
+  <h1>示例3： level属性</h1>
+  <br>
+  <div>
+    <w-button level="main">主要按钮</w-button>
+    <w-button>普通按钮</w-button>
+    <w-button level="danger">危险按钮</w-button>
+  </div>
+  <div>
+    <w-button theme="link" level="main">主要链接按钮</w-button>
+    <w-button theme="link">普通链接按钮</w-button>
+    <w-button theme="link" level="danger">危险链接按钮</w-button>
+  </div>
+  <div>
+    <w-button theme="text" level="main">主要文字按钮</w-button>
+    <w-button theme="text">普通文字按钮</w-button>
+    <w-button theme="text" level="danger">危险文字按钮</w-button>
+  </div>
+  <br>
+  <h1>示例4： disabled属性</h1>
+  <br>
+  <div>
+    <w-button :disabled="true">禁用按钮</w-button>
+    <w-button theme="link" :disabled="true">禁用链接按钮</w-button>
+    <w-button theme="text" :disabled="true">禁用文字按钮</w-button>
+  </div>
+  <br>
 </template>
 
 <script lang="ts" setup>
