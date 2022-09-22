@@ -53,11 +53,31 @@
     <w-button theme="text" :disabled="true">禁用文字按钮</w-button>
   </div>
   <br>
+  <h1>示例5： loading属性</h1>
+  <br>
+  <div>
+    <w-button :loading="true">loading按钮</w-button>
+    <w-button>普通按钮</w-button>
+  </div>
+  <br>
+  <h1>示例6： 点击事件</h1>
+  <br>
+  <div>
+    <w-button @click="handleClick" :loading="loading">loading按钮</w-button>
+  </div>
 </template>
 
 <script lang="ts" setup>
 // vue3推崇的写法，直接script标签加上setup，会自动抛出去引入的组件和声明的变量函数等
 //和传统的vue2写法中使用setup()入口一样，不过这种方式需要记得return 声明的变量 函数
+import { ref } from 'vue';
 import WButton from '../lib/Button.vue'
 
+const loading = ref(false)
+const handleClick = () => {
+  loading.value = !loading.value
+  setTimeout(() => {
+    loading.value = !loading.value
+  }, 2*1000);
+}
 </script>

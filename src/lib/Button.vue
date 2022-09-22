@@ -1,5 +1,6 @@
 <template>
   <button class="gulu-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="gulu-loadingIndicator"></span>
     <slot></slot>
   </button>
 </template>
@@ -62,7 +63,14 @@ const props = defineProps({
     default() {
       return false
     },
-  }
+  },
+  loading: {
+    type: Boolean,
+    required: false,
+    default() {
+      return false
+    },
+  },
 })
 
 /**
@@ -80,7 +88,7 @@ const props = defineProps({
 </script>
 <script lang="ts">
 export default {
-  inheritAttrs: false,
+  // inheritAttrs: false,
 }
 </script>
 <style lang="scss">
@@ -233,5 +241,21 @@ $grey: gray;
     }
   }
 
+  // loading效果
+  > .gulu-loadingIndicator {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: gulu-spin 1s infinite linear;
+  }
+  @keyframes gulu-spin {
+    0%{transform: rotate(0deg)} 
+    100%{transform: rotate(360deg)} 
+  }
 }
 </style>
