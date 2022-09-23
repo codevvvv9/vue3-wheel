@@ -1,15 +1,19 @@
 import Doc from './views/Doc.vue'
 import Home from './views/Home.vue'
-import Intro from './views/Intro.vue'
-import GetStarted from './views/GetStarted.vue'
-import Install from './views/Install.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import SwitchDemo from './components/SwitchDemo.vue'
 import Dialog from './components/Dialog.vue'
 import Tabs from './components/Tabs.vue'
 import DocDefault from './components/DocDefault.vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
+import { h } from 'vue'
+import Markdown from './components/Markdown.vue'
 
+const getMd = (filename: string) => {
+  // h函数 返回一个处理后的VNode
+  // 一定记得加key，不然切换路由，页面没变
+  return h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
+}
 const history = createWebHashHistory()
 const router = createRouter({
   history,
@@ -44,15 +48,15 @@ const router = createRouter({
         },
         {
           path: 'intro',
-          component: Intro,
+          component: getMd('intro'),
         },
         {
           path: 'install',
-          component: Install,
+          component: getMd('install'),
         },
         {
           path: 'get-started',
-          component: GetStarted,
+          component: getMd('get-started'),
         },
       ]
     }
