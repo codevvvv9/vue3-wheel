@@ -4,11 +4,18 @@
     <Button @click="handleOpenDialog">打开Dialog</Button>
     <Dialog 
       v-model:visible="dialogVisible"
-      :closeOverlay="closeOverlay"
+      :closeOnClickOverlay="closeOverlay"
       :handleOk="handleOk"
       :handleCancel="handleCancel"
-      @cancel="cancel"
-      />
+      @cancel="cancel">
+      <template v-slot:title>
+        <strong>啊呀</strong>
+      </template>
+      <template v-slot:content>
+        <h1>我是h1</h1>
+        <h1>我是h2</h1>
+      </template>
+    </Dialog>
   </div>
 </template>
 

@@ -4,13 +4,14 @@
     <div class="gulu-dialog-wrapper">
       <div class="gulu-dialog">
         <header>
-          <span>标题</span>
+          <slot name="title">
+            <span>标题</span>
+          </slot>
           <span class="gulu-dialog-close" @click="handleCloseDialog"></span>
         </header>
         <main>
-          <p>我是中间的文字</p>
-          <p>我是中间的文字</p>
-          <p>我是中间的文字</p>
+          <slot name="content">
+          </slot>
         </main>
         <footer>
           <Button level="main" @click="handleClickOk">OK</Button>
@@ -35,7 +36,7 @@ const props = defineProps({
     },
   },
   // 是否可以点击遮罩层关闭dialog，默认不可以
-  closeOverlay: {
+  closeOnClickOverlay: {
     type: Boolean,
     required: false,
      default() {
@@ -66,7 +67,7 @@ const handleCloseDialog = () => {
 };
 function handleClickOverlay(params:any) {
   // 只有传递了点击遮罩层可以关才触发
-  if (props.closeOverlay) {
+  if (props.closeOnClickOverlay) {
     handleCloseDialog()
   }
 }
