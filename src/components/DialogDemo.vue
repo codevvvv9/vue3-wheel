@@ -1,10 +1,37 @@
 <template>
   <div>
     <h1>Dialog 组件示例</h1>
-    <Dialog/>
+    <Button @click="handleOpenDialog">打开Dialog</Button>
+    <Dialog 
+      v-model:visible="dialogVisible"
+      :closeOverlay="closeOverlay"
+      :handleOk="handleOk"
+      :handleCancel="handleCancel"
+      @cancel="cancel"
+      />
   </div>
 </template>
 
 <script lang="ts" setup>
 import Dialog from '../lib/Dialog.vue';
+import Button from '../lib/Button.vue';
+import { ref } from 'vue';
+
+const dialogVisible = ref(false)
+const handleOpenDialog = () => {
+  dialogVisible.value = !dialogVisible.value
+}
+const closeOverlay = ref(false)
+const handleOk = () => {
+  
+  return true
+}
+const handleCancel = () => {
+
+}
+
+function cancel(params:any) {
+  console.log('params is', params);
+  
+}
 </script>
