@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="gulu-switch" :class="{'gulu-checked': value}" @click="toggleSwitch">
+    <button class="gulu-switch" :class="{'gulu-checked': value}" @click="toggleSwitch" :disabled="disabled">
       <span></span>
     </button>
   </div>
@@ -12,6 +12,12 @@ export default {
   props: {
     // 组件的真实数据
     value: {
+      type: Boolean,
+      default() {
+        return false
+      }
+    },
+    disabled: {
       type: Boolean,
       default() {
         return false
@@ -46,6 +52,12 @@ export default {
     background: #bfbfbf;
     border-radius: calc($h / 2);
     position: relative;
+    &[disabled] {
+      cursor: not-allowed;
+    }
+    &[disabled]:hover {
+      cursor: not-allowed;
+    }
     span {
       position: absolute; //会导致span变成block
       top: 2px;
