@@ -4,27 +4,29 @@
   <div>
     <h1>Switch 组件示例</h1>
     <div class="demo">
-      <h2>常规用法</h2>
+      <h2>{{ Switch1.__sourceCodeTitle}}</h2>
       <div class="demo-component">
-        <Switch1></Switch1>
+        <!-- <Switch1></Switch1> -->
+        <component :is="Switch1" />
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="checked" /&gt;</pre>
+        <pre>{{ Switch1.__sourceCode}}</pre>
       </div>
     </div>
     <div class="demo">
-      <h2>支持 disabled</h2>
+      <h2>{{ Switch2.__sourceCodeTitle}}</h2>
       <div class="demo-component">
-        <Switch2></Switch2>
+        <!-- <Switch2></Switch2> -->
+        <component :is="Switch2" />
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="checked" disabled /&gt;</pre>
+        <pre>{{ Switch2.__sourceCode}}</pre>
       </div>
     </div>
   </div>
@@ -34,6 +36,7 @@
 import Switch1 from './Switch1.demo.vue'
 import Button from "../lib/Button.vue";
 import Switch2 from './Switch2.demo.vue';
+console.log('S', Switch2.__sourceCode);
 
 </script>
 <style lang="scss" scoped>
