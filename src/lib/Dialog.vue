@@ -1,24 +1,25 @@
 <template>
   <template v-if="visible">
-    <div class="gulu-dialog-overlay" @click="handleClickOverlay"></div>
-    <div class="gulu-dialog-wrapper">
-      <div class="gulu-dialog">
-        <header>
-          <slot name="title">
-            <span>标题</span>
-          </slot>
-          <span class="gulu-dialog-close" @click="handleCloseDialog"></span>
-        </header>
-        <main>
-          <slot name="content">
-          </slot>
-        </main>
-        <footer>
-          <Button level="main" @click="handleClickOk">OK</Button>
-          <Button @click="handleClickCancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="gulu-dialog-overlay" @click="handleClickOverlay"></div>
+      <div class="gulu-dialog-wrapper">
+        <div class="gulu-dialog">
+          <header>
+            <slot name="title">
+              <span>标题</span>
+            </slot>
+            <span class="gulu-dialog-close" @click="handleCloseDialog"></span>
+          </header>
+          <main>
+            <slot name="content"> </slot>
+          </main>
+          <footer>
+            <Button level="main" @click="handleClickOk">OK</Button>
+            <Button @click="handleClickCancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 <script lang="ts" setup>
@@ -26,7 +27,7 @@ import Button from "./Button.vue";
 // defineEmits() 宏不能在子函数中使用。
 // 必须直接放置在 <script setup> 的顶级作用域下
 // 这些顶级的宏都返回了对应值可以在子函数中使用
-const emits = defineEmits(["update:visible", 'cancel']);
+const emits = defineEmits(["update:visible", "cancel"]);
 const props = defineProps({
   visible: {
     type: Boolean,
@@ -39,24 +40,24 @@ const props = defineProps({
   closeOnClickOverlay: {
     type: Boolean,
     required: false,
-     default() {
-      return false
-     }
+    default() {
+      return false;
+    },
   },
   handleOk: {
     type: Function,
     required: false,
-     default() {
-      return () => {}
-     }
+    default() {
+      return () => {};
+    },
   },
   handleCancel: {
     type: Function,
     required: false,
-     default() {
-      return () => {}
-     }
-  }
+    default() {
+      return () => {};
+    },
+  },
 });
 // 慎用props的解构，会破坏响应性
 // const { visible } = props;
@@ -65,21 +66,22 @@ const props = defineProps({
 const handleCloseDialog = () => {
   emits("update:visible", false);
 };
-function handleClickOverlay(params:any) {
+function handleClickOverlay(params: any) {
   // 只有传递了点击遮罩层可以关才触发
   if (props.closeOnClickOverlay) {
-    handleCloseDialog()
+    handleCloseDialog();
   }
 }
 // ok的关闭需要父组件明确的告诉可以关闭了，才能关闭
-function handleClickOk(params:any) {
+function handleClickOk(params: any) {
   if (props.handleOk?.()) {
-    handleCloseDialog()
+    handleCloseDialog();
   }
 }
-function handleClickCancel(params:any) {
-  emits('cancel', 'cancel')
-  handleCloseDialog()
+function handleClickCancel(params: any) {
+  props.handleCancel?.()
+  emits("cancel", "cancel");
+  handleCloseDialog();
 }
 </script>
 <style lang="scss">

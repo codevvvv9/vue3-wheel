@@ -3,13 +3,13 @@
 ☝🏻
 打开终端运行下列命令：
 
-```javascript
+```
 npm install vvu-ui
 ```
 
 或
 
-```javascript
+```
 yarn add vvu-ui
 ```
 
