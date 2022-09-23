@@ -2,7 +2,7 @@ import Doc from './views/Doc.vue'
 import Home from './views/Home.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import SwitchDemo from './components/SwitchDemo.vue'
-import Dialog from './components/Dialog.vue'
+import DialogDemo from './components/DialogDemo.vue'
 import Tabs from './components/Tabs.vue'
 import DocDefault from './components/DocDefault.vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
@@ -40,7 +40,7 @@ const router = createRouter({
         },
         {
           path: 'dialog',
-          component: Dialog,
+          component: DialogDemo,
         },
         {
           path: 'tabs',
