@@ -6,7 +6,7 @@
     <div class="demo">
       <h2>常规用法</h2>
       <div class="demo-component">
-        <Switch v-model:value="checked"></Switch>
+        <Switch1></Switch1>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -18,7 +18,7 @@
     <div class="demo">
       <h2>支持 disabled</h2>
       <div class="demo-component">
-        <Switch v-model:value="checked2" disabled />
+        <Switch2></Switch2>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -30,32 +30,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { ref } from "vue";
-import Switch from "../lib/Switch.vue";
+<script lang="ts" setup>
+import Switch1 from './Switch1.demo.vue'
 import Button from "../lib/Button.vue";
-export default {
-  name: "SwitchDemo",
-  components: {
-    Switch,
-    Button,
-  },
-  setup(props: any) {
-    const checked2 = ref(false)
-    const handleInput = ($event: any) => {
-      //收到子组件内部消息$event后，才能由父组件修改数据
-      //进而子组件收到数据变化，进行UI状态变更
-      checked.value = $event;
-    };
-    //组件的默认值
-    let checked = ref(true);
-    return {
-      checked,
-      handleInput,
-      checked2
-    };
-  },
-};
+import Switch2 from './Switch2.demo.vue';
+
 </script>
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
