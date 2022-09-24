@@ -7,7 +7,7 @@
         :key="index"
         @click="handleClickTab(title)"
         :class="{ selected: title === selected }"
-        :ref="el => { if(title === selected) itemRefs = el}"
+        :ref="el => { if(title === selected) itemRefs = (el as Element)}"
       >
         {{ title }}
       </div>
