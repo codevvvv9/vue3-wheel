@@ -8,18 +8,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 const props = defineProps({
-  path: {
+  mdContent: {
     type: String,
     required: true,
   },
-})
-const mdContent = ref(null)
-const { path } = props
-// 动态import 相当于这个网络请求http://127.0.0.1:5173/src/markdown/install.md?import
-// 忽略vite警告 https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations
-import(/* @vite-ignore */ path).then((result) => {
-  console.log('result is', result);
-  //异步加载后的default字段是需要的字符串
-  mdContent.value = result.default
 })
 </script>

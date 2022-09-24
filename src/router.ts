@@ -7,12 +7,15 @@ import Tabs from './components/Tabs.vue'
 import DocDefault from './components/DocDefault.vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
 import { h } from 'vue'
+import GetStarted from './markdown/get-started.md'
+import intro from './markdown/intro.md'
+import install from './markdown/install.md'
 import Markdown from './components/Markdown.vue'
 
-const getMd = (filename: string) => {
+const getMd = (md: string) => {
   // h函数 返回一个处理后的VNode
   // 一定记得加key，不然切换路由，页面没变
-  return h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
+  return h(Markdown, {mdContent: md, key: md})
 }
 const history = createWebHashHistory()
 const router = createRouter({
@@ -48,15 +51,15 @@ const router = createRouter({
         },
         {
           path: 'intro',
-          component: getMd('intro'),
+          component: getMd(intro),
         },
         {
           path: 'install',
-          component: getMd('install'),
+          component: getMd(install),
         },
         {
           path: 'get-started',
-          component: getMd('get-started'),
+          component: getMd(GetStarted),
         },
       ]
     }

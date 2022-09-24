@@ -20,7 +20,7 @@ function openDialog(options: dialogOptions) {
   const app = createApp({
     // render为内置函数，来构建组件
     // h()函数接受三个参数， 返回VNode
-    // 第一个组件 第二个props 第二个slots
+    // 第一个组件 第二个props 第三个slots
     render() {
       return h(Dialog, {
         closeOnClickOverlay,
