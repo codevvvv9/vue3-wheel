@@ -46,9 +46,10 @@ export default {
     height: $h;
     width: calc($h * 2);
     border: none;
-    // &:focus {
-    //   outline: none;
-    // }
+    outline: none;
+    &:focus {
+      outline: none;
+    }
     background: #bfbfbf;
     border-radius: calc($h / 2);
     position: relative;

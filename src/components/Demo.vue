@@ -5,7 +5,8 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button @click="handleViewCode">查看代码</Button>
+      <Button @click="handleHideCode" v-if="demoCodeVisible">隐藏代码</Button>
+      <Button @click="handleViewCode" v-else>查看代码</Button>
     </div>
     <div class="demo-code" v-if="demoCodeVisible">
       <pre class="language-html" v-html="demoCodeHtml" />
@@ -29,7 +30,10 @@ const props = defineProps({
 });
 const demoCodeVisible = ref(false)
 const handleViewCode = () => {
-  demoCodeVisible.value = !demoCodeVisible.value
+  demoCodeVisible.value = true
+}
+const handleHideCode = () => {
+  demoCodeVisible.value = false
 }
 const { component } = props
 const demoCodeHtml = computed(() => {

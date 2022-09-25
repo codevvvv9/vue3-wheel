@@ -4,13 +4,13 @@
 打开终端运行下列命令：
 
 ```
-npm install vvu-ui
+npm install vvu-ui-1
 ```
 
 或
 
 ```
-yarn add vvu-ui
+yarn add vvu-ui-1
 ```
 
 下一节：[开始使用](#/doc/get-started)

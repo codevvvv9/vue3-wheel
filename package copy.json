@@ -1,11 +1,8 @@
 {
   "name": "vvu-ui-1",
-  "version": "0.0.2",
-  "files": [
-    "dist/lib/*"
-  ],
+  "version": "0.0.1",
+  "files": ["dist/lib/*"],
   "main": "dist/lib/gulu.js",
-  "module": "dist/lib/gulu.esm.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
