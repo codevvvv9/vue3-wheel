@@ -31,7 +31,7 @@ const router = createRouter({
       children: [
         {
           path: '',
-          component: DocDefault,
+          redirect: '/doc/intro',
         },
         {
           path: 'switch',
