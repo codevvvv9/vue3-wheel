@@ -13,6 +13,6 @@
 <script lang="ts" setup>
 import Tabs from "../lib/Tabs.vue";
 import Tab from "../lib/Tab.vue";
-import { ref } from "vue";
-const selected = ref<string>("标题222");
+import { Ref, ref } from "vue";
+const selected = ref("标题222");
 </script>
